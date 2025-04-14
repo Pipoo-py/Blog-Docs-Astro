@@ -1,0 +1,128 @@
+html {
+  background-color: #f1f5f9;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 80ch;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+}
+
+/* estilos de la barra de navegación*/
+
+.hamburger {
+  /* Quité padding-right, ajústalo si lo necesitas en el contenedor */
+  cursor: pointer;
+  /* Añade esto si no está dentro de un flex container que lo posicione */
+  /* position: absolute; */
+  /* right: 20px; */
+  /* top: 20px; */
+  z-index: 10; /* Asegura que esté por encima de otros elementos si es necesario */
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px; /* Ancho de la línea */
+  height: 5px; /* Grosor de la línea */
+  margin-bottom: 10px; /* Espacio entre líneas */
+  background-color: #ff9776; /* Color */
+  border-radius: 3px; /* Bordes redondeados opcionales */
+}
+/* Quita el margen de la última línea */
+.hamburger .line:last-child {
+    margin-bottom: 0;
+}
+
+
+.nav-links {
+  width: 100%;
+  /* position: absolute; // Descomenta si quieres que flote sobre el contenido */
+  top: 5rem; /* Ajusta según la altura de tu header */
+  left: 0; /* Ocupa todo el ancho */
+  background-color: #ff9776;
+  display: none; /* Oculto por defecto en móvil */
+  margin: 0;
+  padding: 0; /* Quita padding si los 'a' ya lo tienen */
+  list-style: none; /* Si usaras <ul> */
+}
+
+.nav-links a {
+  display: block;
+  text-align: center;
+  padding: 15px 0; /* Aumenté un poco el padding */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff; /* Añade color para contraste */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separador opcional */
+}
+.nav-links a:last-child {
+    border-bottom: none; /* Quita borde del último */
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background-color: #e6866a; /* Un color ligeramente diferente para hover */
+}
+
+/* Corrige: aplica .expanded directamente a .nav-links */
+.nav-links.expanded {
+  display: block; /* Muestra el menú cuando tiene la clase .expanded */
+}
+
+/* --- Media Query para Escritorio --- */
+@media screen and (min-width: 636px) {
+  .nav-links {
+    margin-left: 0; /* Quita el margen si no es necesario */
+    display: flex; /* Usa flex para alinear en línea */
+    flex-direction: row; /* Dirección horizontal */
+    position: static; /* Vuelve a flujo normal */
+    width: auto; /* Ancho automático */
+    background: none; /* Sin fondo */
+  }
+
+  .nav-links a {
+    display: inline-block; /* Como antes */
+    padding: 15px 20px; /* Como antes */
+    color: #333; /* Ajusta color para escritorio */
+    border-bottom: none; /* Sin borde inferior en escritorio */
+  }
+
+   .nav-links a:hover,
+   .nav-links a:focus {
+     background-color: transparent; /* Sin fondo al pasar el ratón */
+     color: #ff9776; /* Cambia color del texto al pasar el ratón */
+   }
+
+
+  .hamburger {
+    display: none; /* Oculta el botón hamburguesa en escritorio */
+  }
+
+  /* Asegúrate que la clase .expanded no interfiera en escritorio */
+  .nav-links.expanded {
+    display: flex; /* Mantenlo como flex en escritorio, incluso si está expandido */
+  }
+}
+
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
